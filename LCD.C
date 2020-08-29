@@ -197,49 +197,23 @@ void lcd_putc(unsigned char ch){		//Sends Char to LCD
 
 	RS_ON;
 
-	if ( ch & 0x10 ) {
+	if ( ch & 0x11 ) {
 		D4_ON;
 	} else {
 		D4_OFF;
 	}
-	if ( ch & 0x20 ) {
+	if ( ch & 0x22 ) {
 		D5_ON;
 	} else {
 		D5_OFF;
 	}
-	if ( ch & 0x40 ) {
+	if ( ch & 0x44 ) {
 		D6_ON;
 
 	} else {
 		D6_OFF;
 	}
-	if ( ch & 0x80 ) {
-		D7_ON;
-	} else {
-		D7_OFF;
-	}
-
-	E_ON;
-	HAL_Delay(5);//__delay_us(300);
-	E_OFF;
-	HAL_Delay(5);//__delay_us(300);
-
-	if ( ch & 0x01 ) {
-		D4_ON;
-	} else {
-		D4_OFF;
-	}
-	if ( ch & 0x02 ) {
-		D5_ON;
-	} else {
-		D5_OFF;
-	}
-	if ( ch & 0x04 ) {
-		D6_ON;
-	} else {
-		D6_OFF;
-	}
-	if ( ch & 0x08 ) {
+	if ( ch & 0x88 ) {
 		D7_ON;
 	} else {
 		D7_OFF;
@@ -254,22 +228,22 @@ void vlcd_command(unsigned char cmd){	//Sends Command to LCD
 
 	RS_OFF;
 
-	if ( cmd & 0x10 ) {
+	if ( cmd & 0x11 ) {
 		D4_ON;
 	} else {
 		D4_OFF;
 	}
-	if ( cmd & 0x20 ) {
+	if ( cmd & 0x22 ) {
 		D5_ON;
 	} else {
 		D5_OFF;
 	}
-	if ( cmd & 0x40 ) {
+	if ( cmd & 0x44 ) {
 		D6_ON;
 	} else {
 		D6_OFF;
 	}
-	if ( cmd & 0x80 ) {
+	if ( cmd & 0x88 ) {
 		D7_ON;
 	} else {
 		D7_OFF;
@@ -279,33 +253,6 @@ void vlcd_command(unsigned char cmd){	//Sends Command to LCD
 	HAL_Delay(5);//__delay_us(300);
 	E_OFF;
 	HAL_Delay(5);//__delay_us(300);
-
-	if ( cmd & 0x01 ) {
-		D4_ON;
-	} else {
-		D4_OFF;
-	}
-	if ( cmd & 0x02 ) {
-		D5_ON;
-	} else {
-		D5_OFF;
-	}
-	if ( cmd & 0x04 ) {
-		D6_ON;
-	} else {
-		D6_OFF;
-	}
-	if ( cmd & 0x08 ) {
-		D7_ON;
-	} else {
-		D7_OFF;
-	}
-
-	E_ON;
-	HAL_Delay(5);//__delay_us(300);
-	E_OFF;
-	HAL_Delay(5);//__delay_us(300);
-
 }
 void lcd_gotoxy(unsigned char x, unsigned char y){		//Cursor to X Y position
 	register unsigned char DDRAMAddr;
